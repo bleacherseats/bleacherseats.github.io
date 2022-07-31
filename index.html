@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Alcohol Consumption Trend</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 class="title">World Alcohol Consumption Trend</h1>
+      <div class="triggers">
+        <div class="trigger">
+          <input type="radio" name="trigger" id="trigger-0" value="0" checked />
+          <label for="trigger-0">World Trend Overview</label>
+        </div>
+        <div class="trigger">
+          <input type="radio" name="trigger" id="trigger-1" value="1" />
+          <label for="trigger-1">Least Alcohol Consumption Region</label>
+        </div>
+        <div class="trigger">
+          <input type="radio" name="trigger" id="trigger-2" value="2" />
+          <label for="trigger-2">Most Alcohol Consumption Region</label>
+        </div>
+        <div class="trigger">
+          <input type="radio" name="trigger" id="trigger-3" value="3" />
+          <label for="trigger-3">Explore All Countries</label>
+        </div>
+      </div>
+      <div class="content" id="content"></div>
+      <div class="chart" id="chart"></div>
+      <div class="legend" id="legend"></div>
+      <footer class="footer">
+        <ol>
+          <li
+            >Total alcohol consumption per capita data from
+            <a
+              href="https://databank.worldbank.org/reports.aspx?dsid=2&series=SH.ALC.PCAP.LI#"
+              target="_blank"
+              >World Development Indicators</a
+            ></li
+          >
+          <li>
+            World regions according to the World Bank
+            <a
+              href="https://ourworldindata.org/grapher/world-regions-according-to-the-world-bank"
+              target="_blank"
+              >Our World in Data</a
+            >
+          </li>
+        </ol>
+      </footer>
+    </div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/line-chart.js"></script>
+    <script src="js/line-legend.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+/* General */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #3c4043;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #202124;
+}
+
+/* Layout */
+.wrapper {
+  width: 1280px;
+  margin: 4rem auto;
+  display: grid;
+  grid-template-areas:
+    "title    title   "
+    "triggers triggers"
+    "content  chart   "
+    "content  legend  "
+    "footer   footer  ";
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+}
+
+.title {
+  grid-area: title;
+}
+
+.triggers {
+  grid-area: triggers;
+}
+
+.content {
+  grid-area: content;
+}
+
+.chart {
+  grid-area: chart;
+  height: 480px;
+}
+
+.legend {
+  grid-area: legend;
+}
+
+.footer {
+  grid-area: footer;
+  color: #5f6368;
+}
+
+/* trigger */
+.triggers {
+  display: flex;
+  gap: 1rem;
+}
+
+.trigger input {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+
+.trigger label {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: 1px solid #3c4043;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.trigger label:hover,
+.trigger input:checked + label {
+  color: #fff;
+  background-color: #3c4043;
+}
+
+/* Content */
+.content * + * {
+  margin-top: 1rem;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.legend input {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+
+.legend label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.legend label .item-color {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5rem;
+  background-color: #dadce0;
+  transition: background-color 0.15s;
+}
+
+.legend label .item-text {
+  color: #5f6368;
+  transition: color 0.15s;
+}
+
+.legend input:checked + label .item-color {
+  background-color: currentColor;
+}
+
+.legend input:checked + label .item-text {
+  color: #3c4043;
+}
+
+/* Chart */
+.chart {
+  border: 1px solid #dadce0;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+}
+
+.chart svg {
+  overflow: visible;
+  display: block;
+}
+
+.chart text {
+  font-size: 0.75rem;
+  font-family: inherit;
+}
+
+.chart .line {
+  color: #dadce0;
+}
+
+.chart .axis-title {
+  font-size: 0.875rem;
+}
+
+.chart .annotation-text,
+.chart .point-value,
+.chart .hovered-name {
+  stroke: #fff;
+  paint-order: stroke;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  font-size: 0.875rem;
+}
+
+.chart .line.mute {
+  opacity: 0.1;
+}
